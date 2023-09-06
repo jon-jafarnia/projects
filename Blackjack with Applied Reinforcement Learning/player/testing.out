@@ -1,0 +1,148 @@
+ml () {  module ml "$@"
+}
+module () {  _module_raw "$@" 2>&1
+}
+_module_raw () {  eval `/usr/bin/tclsh8.6 /usr/lib/x86_64-linux-gnu/modulecmd.tcl bash "$@"`;
+ _mlstatus=$?;
+ return $_mlstatus
+}
+#!/bin/bash
+#
+# testing.sh - test player.c
+# usage: bash testing.sh 
+# Team 15
+# CS 50, Fall 2022
+
+# test with no agruments
+./player15
+Error. Requires 6 or 7 arguments after './player15' (load_q_file is optional depending on load_q_on).
+Usage: ./player15 [player_name] [host] [port] [training_mode_on] [save_q_file] [load_q_on] OPTIONAL: [load_q_file]
+
+# test with too many agruments
+./player15 team_15 localhost 8095 true q.txt true load.txt 90
+Error. Requires 6 or 7 arguments after './player15' (load_q_file is optional depending on load_q_on).
+Usage: ./player15 [player_name] [host] [port] [training_mode_on] [save_q_file] [load_q_on] OPTIONAL: [load_q_file]
+
+# test with invalid port number
+./player15 team_15 localhost -5 true q.txt false
+Error. Invalid port number.
+Usage: ./player15 [player_name] [host] [port] [training_mode_on] [save_q_file] [load_q_on] OPTIONAL: [load_q_file]
+
+# test with invalid boolean
+./player15 team_15 localhost 8095 maybe q.txt false
+Error. Invalid boolean for training_mode_on.
+Usage: ./player15 [player_name] [host] [port] [training_mode_on] [save_q_file] [load_q_on] OPTIONAL: [load_q_file]
+
+# test with invalid boolean combination
+./player15 team_15 localhost 8095 false q.txt false
+Error. In play mode but didn't specify q file to load.
+Usage: ./player15 [player_name] [host] [port] [training_mode_on] [save_q_file] [load_q_on] OPTIONAL: [load_q_file]
+
+# test properly with valgrind (ensure dealer is running locally on port 8095)
+valgrind ./player15 team_15 localhost 8095 true q.txt true q_100000
+==3938746== Memcheck, a memory error detector
+==3938746== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3938746== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3938746== Command: ./player15 team_15 localhost 8095 true q.txt true q_100000
+==3938746== 
+TCP socket created successfully
+Found host 'localhost'
+Connected to server 'localhost' on port 8095
+Sending message: JOIN team_15
+Joined game
+Beginning new game.
+	Received player card: Nine of Clubs
+	Received player card: Seven of Spades
+	Received dealer card: Seven of Clubs
+Sending message: HIT
+	Received player card: Jack of Diamonds
+Received result: BUST
+
+Beginning new game.
+	Received player card: Eight of Diamonds
+	Received player card: Queen of Spades
+	Received dealer card: Ten of Spades
+Sending message: STAND
+Received result: LOOSE
+
+Beginning new game.
+	Received player card: Ace of Diamonds
+	Received player card: Two of Hearts
+	Received dealer card: Jack of Diamonds
+Sending message: HIT
+	Received player card: Ace of Spades
+Sending message: HIT
+	Received player card: Ace of Clubs
+Sending message: HIT
+	Received player card: Six of Spades
+Sending message: STAND
+Received result: WIN
+
+Beginning new game.
+	Received player card: Four of Spades
+	Received player card: King of Diamonds
+	Received dealer card: Six of Diamonds
+Sending message: HIT
+	Received player card: Three of Diamonds
+Sending message: STAND
+Received result: LOOSE
+
+Beginning new game.
+	Received player card: Jack of Clubs
+	Received player card: Six of Clubs
+	Received dealer card: Queen of Hearts
+Sending message: STAND
+Received result: LOOSE
+
+Beginning new game.
+	Received player card: Six of Spades
+	Received player card: King of Diamonds
+	Received dealer card: Five of Spades
+Sending message: HIT
+	Received player card: Jack of Clubs
+Received result: BUST
+
+Beginning new game.
+	Received player card: Three of Hearts
+	Received player card: Queen of Clubs
+	Received dealer card: Ace of Diamonds
+Sending message: HIT
+	Received player card: Ten of Hearts
+Received result: BUST
+
+Beginning new game.
+	Received player card: Three of Spades
+	Received player card: Eight of Clubs
+	Received dealer card: Ace of Clubs
+Sending message: STAND
+Received result: LOOSE
+
+Beginning new game.
+	Received player card: Eight of Clubs
+	Received player card: Queen of Spades
+	Received dealer card: King of Spades
+Sending message: HIT
+	Received player card: Two of Hearts
+Sending message: STAND
+Received result: PUSH
+
+Beginning new game.
+	Received player card: Ten of Spades
+	Received player card: Five of Clubs
+	Received dealer card: Seven of Spades
+Sending message: HIT
+	Received player card: Queen of Diamonds
+Received result: BUST
+
+Received message: QUIT
+Quitting.
+Client shut down.
+==3938746== 
+==3938746== HEAP SUMMARY:
+==3938746==     in use at exit: 0 bytes in 0 blocks
+==3938746==   total heap usage: 142 allocs, 142 frees, 58,899 bytes allocated
+==3938746== 
+==3938746== All heap blocks were freed -- no leaks are possible
+==3938746== 
+==3938746== For lists of detected and suppressed errors, rerun with: -s
+==3938746== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
