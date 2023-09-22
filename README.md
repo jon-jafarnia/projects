@@ -1,5 +1,5 @@
 # Projects
-In this repository I have included some personal and class projects I have worked on.
+This repository holds some of the significant coding projects I have worked on.
 
 ## Lab4_EC
 This project is completed in python and plots a shortest path between two vertices. For this project, I used a map of Dartmouth's campus and marked significant locations as vertices. When two vertices are selected, we use BFS to find the shortest path between these points and then change the color of this shortest path.
