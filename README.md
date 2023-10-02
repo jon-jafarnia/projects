@@ -5,7 +5,7 @@ This repository holds some of the significant coding projects I have worked on.
 This project is completed in python and plots a shortest path between two vertices. For this project, I used a map of Dartmouth's campus and marked significant locations as vertices. When two vertices are selected, we use BFS to find the shortest path between these points and then change the color of this shortest path.
 
 ## project-team-15-main
-This project was completed in C at the culmination of the course COSC 050 (Software Design and Implementation). This project uses reinforcement learning in order to find the optimal decision strategu when playing a game of Blackjack. Furthermore, this project uses clients and servers to allow for others to connect to the game as well.
+This project was completed in C at the culmination of the course COSC 050 (Software Design and Implementation). This project uses reinforcement learning in order to find the optimal decision strategy when playing a game of Blackjack. Furthermore, this project uses clients and servers to allow for others to connect to the game as well.
 
 ## tse-jon-jafarnia-main
 This project was completed in C and it implements a tiny search engine. The project is split into 3 sections: crawler, indexer, and querier.
