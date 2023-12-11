@@ -1,6 +1,9 @@
 # Projects
 This repository holds some of the significant coding projects I have worked on.
 
+## CS89_Final_project
+This project is completed in python and it predicts the Federal Funds Rate. We scrape text data from FOMC Statements, FOMC minutes, and Federal Reserve Speeches. We also gather semantic embeddings from 10-K and 10-Q filings from the 30 companies included in the Dow Jones Industrial Average, and we use FRED to collect macro-economic indicators of the market. We use this data to see if we can predict and classify the Federal Funds Rate. We found that TF-IDF vectorization of text from the Federal Reserve, macroeconomic indicators, microeconomic sentiment, and Word2Vec semantic features created the best logistic regression classification model. This model has an F1 score of 0.650 and an accuracy of 0.6682.
+
 ## Lab4_EC
 This project is completed in python and plots a shortest path between two vertices. For this project, I used a map of Dartmouth's campus and marked significant locations as vertices. When two vertices are selected, we use BFS to find the shortest path between these points and then change the color of this shortest path.
 
