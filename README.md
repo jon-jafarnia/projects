@@ -1,6 +1,10 @@
 # Projects
 This repository holds some of the significant coding projects I have worked on.
 
+## Moves
+https://www.youtube.com/watch?v=i0J5YAl0NHY
+Collaborated with a team of 5 students to design and develop a full-stack mobile application aimed at simplifying and expediting group planning. The app, built with React Native, MongoDB, Firebase Authentication, and OpenAI's API, features an interactive swiping interface which allows users to input their preferences. The group 'leader' selects a designated area, and we use Google's API to get a list of popular restaurants and other places in the area. These locations, combined with user preferences, are processed by a large language model (LLM), which returns a plan based on the group's inputs and popular nearby locations!
+
 ## CS89_Final_project
 This project is completed in python and it predicts the Federal Funds Rate. We scrape text data from FOMC Statements, FOMC minutes, and Federal Reserve Speeches. We also gather semantic embeddings from 10-K and 10-Q filings from the 30 companies included in the Dow Jones Industrial Average, and we use FRED to collect macro-economic indicators of the market. We use this data to see if we can predict and classify the Federal Funds Rate. We found that TF-IDF vectorization of text from the Federal Reserve, macroeconomic indicators, microeconomic sentiment, and Word2Vec semantic features created the best logistic regression classification model. This model has an F1 score of 0.650 and an accuracy of 0.6682.
 
