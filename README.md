@@ -2,7 +2,7 @@
 This repository holds some of the significant coding projects I have worked on.
 
 ## Moves
-https://www.youtube.com/watch?v=i0J5YAl0NHY
+https://www.youtube.com/watch?v=i0J5YAl0NHY \
 Collaborated with a team of 5 students to design and develop a full-stack mobile application aimed at simplifying and expediting group planning. The app, built with React Native, MongoDB, Firebase Authentication, and OpenAI's API, features an interactive swiping interface which allows users to input their preferences. The group 'leader' selects a designated area, and we use Google's API to get a list of popular restaurants and other places in the area. These locations, combined with user preferences, are processed by a large language model (LLM), which returns a plan based on the group's inputs and popular nearby locations!
 
 ## CS89_Final_project
